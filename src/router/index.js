@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import CommentSimple from '../components/comment-simple'
-// import CommentOauth from '../components/comment-oauth'
+import Main from '../components/main'
 
 Vue.use(Router)
 
@@ -10,17 +9,12 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: CommentSimple
+      component: Main
     },
     {
-      path: '/CommentSimple',
-      name: 'CommentSimple',
-      component: CommentSimple
-    },
-    // {
-    //   path: '/',
-    //   name: 'CommentOauth',
-    //   component: CommentOauth
-    // }
+      path: '/Main',
+      name: 'Main',
+      component: Main
+    }
   ]
 })
