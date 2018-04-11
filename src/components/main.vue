@@ -62,10 +62,9 @@
         youtubeBaseUrl: 'https://www.youtube.com/watch?v=',
         commentThreadsBaseUrl: 'https://www.googleapis.com/youtube/v3/commentThreads/',
         commentBaseUrl: 'https://www.googleapis.com/youtube/v3/comments',
-        videoLink: 'https://www.youtube.com/watch?v=r8B-RuJRI2A',
+        videoLink: 'https://www.youtube.com/watch?v=Rvr68u6k5sI',
         // optional links
-        // ipanda: https://www.youtube.com/watch?v=r8B-RuJRI2A
-        // 超社会： https://www.youtube.com/watch?v=r4GWF8_MgK4
+        // coco trailer: https://www.youtube.com/watch?v=Rvr68u6k5sI
         // hakuna matata: https://www.youtube.com/watch?v=NQ6nPoIFDWw
         videoId: '',
         commentThreads: [],
@@ -178,7 +177,10 @@
           // if not only one page, use recursive api call
           if (data.nextPageToken) {
             self.pageToken = data.nextPageToken;
-            self.buildCommentThreadsApiRequest(data.nextPageToken)
+            // add some delay to allow next page token take effect
+            setTimeout(() => {
+              self.buildCommentThreadsApiRequest(data.nextPageToken);
+            }, 100);
           } else {
             self.initCommentThreadsDisplay()
             self.queryCompleted = true; // change status
